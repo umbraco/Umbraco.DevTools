@@ -7,5 +7,7 @@
         "gecko": {
             "id": "umbraco.devtools@warrenbuckley.co.uk"
         }
+    "action": {
+        "default_popup": "popup/popup.html"
     }
 }
