@@ -4,9 +4,11 @@
   "description": "A browser extension to help with debugging the Webcomponent based Umbraco backoffice V13+",
   "main": "index.js",
   "scripts": {
-    "firefox": "web-ext run --source-dir extension/",
-    "firefox:developer": "web-ext run --source-dir extension/ --firefox firefoxdeveloperedition",
-    "chromium": "web-ext run --source-dir extension/ --target chromium"
+    "start:firefox": "web-ext run --source-dir extension/",
+    "start:firefox:developer": "web-ext run --source-dir extension/ --firefox firefoxdeveloperedition",
+    "start:chromium": "web-ext run --source-dir extension/ --target chromium",
+    "lint": "web-ext lint --source-dir extension/"
+    
   },
   "keywords": [
     "browser-extension",

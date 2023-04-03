@@ -2,5 +2,10 @@
     "manifest_version": 3,
     "name": "Umbraco DevTools",
     "description": "A browser extension to help with debugging the Webcomponent based Umbraco backoffice V13+",
-    "version": "0.0.1"    
+    "version": "0.0.1",
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "umbraco.devtools@warrenbuckley.co.uk"
+        }
+    }
 }
