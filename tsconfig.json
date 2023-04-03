@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        "strict": true,
+        "forceConsistentCasingInFileNames": true,
+        "outDir": "./extension",
+        "rootDir": "./src",
+    },
+    
+}
