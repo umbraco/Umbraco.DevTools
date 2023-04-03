@@ -1,3 +1,8 @@
 # Ignore build artifacts and node_modules
 .DS_Store
 node_modules
+
+# The build output of JS files
+# Only want the HTML files and JSON manifest commited
+# to the extension folder
+extension/**/*.js
