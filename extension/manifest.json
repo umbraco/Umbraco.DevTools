@@ -1,0 +1,6 @@
+{
+    "manifest_version": 3,
+    "name": "Umbraco DevTools",
+    "description": "A browser extension to help with debugging the Webcomponent based Umbraco backoffice V13+",
+    "version": "0.0.1"    
+}
