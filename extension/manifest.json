@@ -7,6 +7,13 @@
         "gecko": {
             "id": "umbraco.devtools@warrenbuckley.co.uk"
         }
+    },
+    "icons": {
+        "16": "icons/icon-16.png",
+        "48": "icons/icon-48.png",
+        "128": "icons/icon-128.png",
+        "256": "icons/icon-256.png"
+    },
     "action": {
         "default_popup": "popup/popup.html"
     }
