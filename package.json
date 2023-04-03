@@ -1,0 +1,15 @@
+{
+  "name": "umbraco.devtools",
+  "version": "0.0.1",
+  "description": "A browser extension to help with debugging the Webcomponent based Umbraco backoffice V13+",
+  "main": "index.js",
+  "scripts": {
+  },
+  "keywords": [
+    "browser-extension",
+    "umbraco",
+    "webcomponents"
+  ],
+  "author": "Warren Buckley",
+  "private": true
+}
