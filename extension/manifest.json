@@ -16,5 +16,6 @@
     },
     "action": {
         "default_popup": "popup/popup.html"
-    }
+    },
+    "devtools_page": "devtools/registration.html"
 }

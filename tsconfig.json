@@ -6,6 +6,7 @@
         "rootDir": "./src",
         "target": "ESNext",
         "module": "ESNext",
-        "moduleResolution": "node"
+        "moduleResolution": "node",
+        "allowSyntheticDefaultImports": true
     }
 }

@@ -7,8 +7,8 @@
   "scripts": {
     "build": "rollup --config",
     "watch": "rollup --config --watch",
-    "start:firefox": "web-ext run --source-dir extension/ --devtools",
-    "start:firefox:developer": "web-ext run --source-dir extension/ --firefox firefoxdeveloperedition",
+    "start:firefox": "web-ext run --source-dir extension/ --browser-console --devtools --start-url https://ashy-bay-09f36a803.1.azurestaticapps.net",
+    "start:firefox:developer": "web-ext run --source-dir extension/ --firefox firefoxdeveloperedition --devtools --start-url https://ashy-bay-09f36a803.1.azurestaticapps.net",
     "start:chromium": "web-ext run --source-dir extension/ --target chromium",
     "lint": "web-ext lint --source-dir extension/"
   },
@@ -20,12 +20,15 @@
   "author": "Warren Buckley",
   "private": true,
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^24.0.1",
     "@rollup/plugin-node-resolve": "^15.0.1",
     "@rollup/plugin-typescript": "^11.0.0",
+    "@types/webextension-polyfill": "^0.10.0",
     "rollup": "^3.20.2",
     "tslib": "^2.5.0",
     "typescript": "^5.0.3",
-    "web-ext": "^7.6.0"
+    "web-ext": "^7.6.0",
+    "webextension-polyfill": "^0.10.0"
   },
   "dependencies": {
     "lit": "^2.7.0"
