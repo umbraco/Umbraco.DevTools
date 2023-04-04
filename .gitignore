@@ -6,3 +6,4 @@ node_modules
 # Only want the HTML files and JSON manifest commited
 # to the extension folder
 extension/**/*.js
+extension/**/*.js.map
