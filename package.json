@@ -3,9 +3,10 @@
   "version": "0.0.1",
   "description": "A browser extension to help with debugging the Webcomponent based Umbraco backoffice V13+",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "build": "tsc",
-    "watch": "tsc -w",
+    "build": "rollup --config",
+    "watch": "rollup --config --watch",
     "start:firefox": "web-ext run --source-dir extension/ --devtools",
     "start:firefox:developer": "web-ext run --source-dir extension/ --firefox firefoxdeveloperedition",
     "start:chromium": "web-ext run --source-dir extension/ --target chromium",
@@ -19,6 +20,10 @@
   "author": "Warren Buckley",
   "private": true,
   "devDependencies": {
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@rollup/plugin-typescript": "^11.0.0",
+    "rollup": "^3.20.2",
+    "tslib": "^2.5.0",
     "typescript": "^5.0.3",
     "web-ext": "^7.6.0"
   },

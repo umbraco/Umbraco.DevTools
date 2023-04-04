@@ -3,9 +3,9 @@
         "strict": true,
         "forceConsistentCasingInFileNames": true,
         "experimentalDecorators": true,
-        "sourceMap": true,
-        "inlineSources": true,
-        "outDir": "./extension",
-        "rootDir": "./src"        
+        "rootDir": "./src",
+        "target": "ESNext",
+        "module": "ESNext",
+        "moduleResolution": "node"
     }
 }
