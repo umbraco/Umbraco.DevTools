@@ -27,5 +27,17 @@ export default [
             commonjs(),
             typescript()
         ]
+    },
+    {
+        input: 'src/devtools/devtools.element.ts',
+        output: {
+            dir: 'extension/devtools',
+            format: 'esm'
+        },
+        plugins: [
+            nodeResolve(),
+            commonjs(),
+            typescript()
+        ]
     }
 ];
