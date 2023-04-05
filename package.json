@@ -8,8 +8,8 @@
     "build": "rollup --config",
     "watch": "rollup --config --watch",
     "start:firefox": "web-ext run --source-dir extension/ --browser-console --devtools --start-url https://ashy-bay-09f36a803.1.azurestaticapps.net",
-    "start:firefox:developer": "web-ext run --source-dir extension/ --firefox firefoxdeveloperedition --devtools --start-url https://ashy-bay-09f36a803.1.azurestaticapps.net",
-    "start:chromium": "web-ext run --source-dir extension/ --target chromium",
+    "start:firefox:developer": "web-ext run --source-dir extension/ --firefox firefoxdeveloperedition --browser-console --devtools --start-url https://ashy-bay-09f36a803.1.azurestaticapps.net",
+    "start:chromium": "web-ext run --source-dir extension/ --target chromium --browser-console --devtools --start-url https://ashy-bay-09f36a803.1.azurestaticapps.net",
     "lint": "web-ext lint --source-dir extension/"
   },
   "keywords": [
