@@ -39,5 +39,29 @@ export default [
             commonjs(),
             typescript()
         ]
+    },
+    {
+        input: 'src/background/background.ts',
+        output: {
+            dir: 'extension/background',
+            format: 'esm'
+        },
+        plugins: [
+            nodeResolve(),
+            commonjs(),
+            typescript()
+        ]
+    },
+    {
+        input: 'src/content-script/content.ts',
+        output: {
+            dir: 'extension/content-script',
+            format: 'esm'
+        },
+        plugins: [
+            nodeResolve(),
+            commonjs(),
+            typescript()
+        ]
     }
 ];
