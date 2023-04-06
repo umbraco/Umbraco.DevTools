@@ -17,5 +17,12 @@
     "action": {
         "default_popup": "popup/popup.html"
     },
-    "devtools_page": "devtools/registration.html"
+    "devtools_page": "devtools/registration.html",
+    "background": {
+        "scripts": ["background/background.js"]
+    },
+    "permissions": [
+        "scripting",
+        "activeTab"
+    ]
 }
