@@ -1,19 +1,43 @@
-import {LitElement, css, html} from 'lit';
-import {customElement, property, state} from 'lit/decorators.js';
+import {LitElement, TemplateResult, css, html} from 'lit';
+import {customElement, state} from 'lit/decorators.js';
 import browser from "webextension-polyfill";
+import { DebugContextData } from './DebugContextData.interface';
+import './devtools.context.element';
+
 
 @customElement('umb-devtools')
 export class UmbDevToolsElement extends LitElement {
 
-    @property({type: Number}) count = 0;
-
     @state()
-    contextData: any;
+    contextData = Array<DebugContextData>();
 
     @state()
     hasSelection = false;
 
     private _backgroundPageConnection?: browser.Runtime.Port;
+
+
+    static styles = css`
+        :host {
+            font-family: monospace;
+            font-size: 12px;
+
+            display: block;
+            height: 100%;
+
+            background:pink;
+        }
+
+        .sticky-bar {
+            position: sticky;
+            top:0;
+            background: #fff;
+            padding: 10px 8px;
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 8px;
+        }
+    `;
+
 
     connectedCallback(): void {
         super.connectedCallback();
@@ -66,10 +90,6 @@ export class UmbDevToolsElement extends LitElement {
         browser.devtools.panels.elements.onSelectionChanged.removeListener(this._onSelectionChanged);
     }
 
-    private _increment(e: Event) {
-        this.count++;
-      }
-
     private _onSelectionChanged = () => {
 
         // Dispatch a custom event on the selected element
@@ -83,12 +103,10 @@ export class UmbDevToolsElement extends LitElement {
         browser.devtools.inspectedWindow.eval(`
             if (!window.selectedElement) {
                 let selectedElement = $0;
-                selectedElement.style.border = "5px solid purple";
                 selectedElement.dispatchEvent(new CustomEvent("umb:debug-contexts", { bubbles: true, composed: true, cancelable: false }));
                 window.selectedElement = selectedElement;
             } else {
                 let selectedElement = $0;
-                selectedElement.style.border = "5px solid pink";
                 selectedElement.dispatchEvent(new CustomEvent("umb:debug-contexts", { bubbles: true, composed: true, cancelable: false }));
                 window.selectedElement = selectedElement;
             }
@@ -98,19 +116,32 @@ export class UmbDevToolsElement extends LitElement {
     render() {
         if(!this.hasSelection) {
             return html `
-                <p><button @click="${this._increment}">Click Me!</button></p>
-                <p>Click count: ${this.count}</p>
                 <strong>Please select a DOM element from the elements pane</strong>
             `
         }else {
             return html `
-                <p><button @click="${this._increment}">Click Me!</button></p>
-                <p>Click count: ${this.count}</p>
-                <strong>You HAVE selected something</strong><br/>
-                <strong>Context Data Length ${this.contextData.length}</strong>
-            `
-        }       
+                <div class="sticky-bar">
+                    <strong>Contexts Count: ${this.contextData.length}</strong>
+                </div>
+                ${this._renderContextData()}
+            `;
+        }   
     }
+
+    private _renderContextData() {
+        const contextsTemplates: TemplateResult[] = [];
+
+		this.contextData.forEach((contextData) => {
+			contextsTemplates.push(
+				html`
+                    <umb-devtools-context class="context" .context=${contextData}></umb-devtools-context>
+                `
+			);
+		});
+
+		return contextsTemplates;
+    }
+
 }
 
 declare global {
