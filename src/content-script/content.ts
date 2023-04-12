@@ -9,6 +9,14 @@ const umbAppRoots = document.getElementsByTagName("umb-app");
 if (umbAppRoots.length) {
   const umbAppRoot = umbAppRoots[0];
 
+   // Send a message to the background page
+   // Saying we found an <umb-app> element in the DOM
+   // Then background can change the action icon to colour & change the HTML page popup to say found it
+   backgroundPageConnection.postMessage({
+    name: "detectedUmbApp",
+    data: true,
+  });
+
   // Listen for the custom event from the <umb-debug> element 
   // when it has collected all contexts up the DOM
   umbAppRoot.addEventListener("umb:debug-contexts:data", (e) => {

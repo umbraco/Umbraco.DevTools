@@ -52,12 +52,14 @@ export class UmbDevToolsElement extends LitElement {
             tabId: browser.devtools.inspectedWindow.tabId
         });
 
+        // *** NOTE: This was moved as registration into manifest.json ***
+
         // Let the background page know we want to inject a script
-        this._backgroundPageConnection.postMessage({
-            name: "injectContentScript",
-            tabId: browser.devtools.inspectedWindow.tabId,
-            scriptToInject: "content-script/content.js",
-        });
+        // this._backgroundPageConnection.postMessage({
+        //     name: "injectContentScript",
+        //     tabId: browser.devtools.inspectedWindow.tabId,
+        //     scriptToInject: "content-script/content.js",
+        // });
 
 
         // Listen to ANY messages recieved FROM the background page

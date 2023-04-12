@@ -37,11 +37,25 @@ browser.runtime.onConnect.addListener((devToolsConnection) => {
                 break;
 
             case "contextData":
-
-                console.log('I GOT CONTEXT DATA IN BG', message);    
-
                 // Send/relay the message back to DevTools code to deal with it
                 connections[id].postMessage({ name: message.name, data: message.data });
+                break;
+            
+            case "detectedUmbApp":
+                // Content script has found <umb-app> in DOM
+                // So make the browser action change to color to show like an enabled state
+                // Also change the HTML url of the popup to be found.html
+                browser.action.setPopup({
+                    popup: "popup/found.html"
+                });
+                browser.action.setIcon({
+                    path: {
+                        16: "icons/icon-16.png",
+                        48: "icons/icon-48.png",
+                        128: "icons/icon-128.png",
+                        256: "icons/icon-256.png"
+                    }
+                });
                 break;
         }
     };
