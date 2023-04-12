@@ -109,7 +109,7 @@ export class UmbDevToolsContextElement extends LitElement {
 					case 'number':
 						console.log('NUM', property);
 						console.log('NUM val', property.value);
-						props.push(html`<li>${property.key} <em>(${property.type})</em></li>`);
+						props.push(html`<li>${property.key} <em>(${property.type})</em>  = ${property.value}</li>`);
 						break;
 					
 					default:
