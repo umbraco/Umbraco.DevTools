@@ -69,10 +69,38 @@ export class UmbDevToolsContextElement extends LitElement {
 
 			const props: TemplateResult[] = [];
 			instance.properties?.forEach((property) => {
-				if (property.type === 'string') {
-					props.push(html`<li>${property.key} = ${property.value}</li>`);
-				} else {
-					props.push(html`<li>${property.key} <em>(${property.type})</em></li>`);
+				switch (property.type) {
+					case 'string':
+						props.push(html`<li>${property.key} <em>(${property.type})</em> = ${property.value}</li>`);
+						break;
+
+					case 'object':
+						console.log('OBJECT', property);
+						console.log('OBJECT val', property.value);
+						props.push(html`<li>${property.key} <em>(${property.type})</em></li>`);
+						break;
+
+					case 'function':
+						console.log('FUNCTION', property);
+						console.log('FUNCTION val', property.value);
+						props.push(html`<li>${property.key} <em>(${property.type})</em></li>`);
+						break;
+
+					case 'boolean':
+						console.log('BOOL', property);
+						console.log('BOOL val', property.value);
+						props.push(html`<li>${property.key} <em>(${property.type})</em> = ${property.value}</li>`);
+						break;
+
+					case 'number':
+						console.log('NUM', property);
+						console.log('NUM val', property.value);
+						props.push(html`<li>${property.key} <em>(${property.type})</em></li>`);
+						break;
+					
+					default:
+						props.push(html`<li>${property.key} <em>(${property.type})</em></li>`);
+						break;
 				}
 			});
 
