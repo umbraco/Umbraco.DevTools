@@ -13,8 +13,7 @@ if (umbAppRoots.length) {
    // Saying we found an <umb-app> element in the DOM
    // Then background can change the action icon to colour & change the HTML page popup to say found it
    backgroundPageConnection.postMessage({
-    name: "detectedUmbApp",
-    data: true,
+    name: "detectedUmbApp"
   });
 
   // Listen for the custom event from the <umb-debug> element 

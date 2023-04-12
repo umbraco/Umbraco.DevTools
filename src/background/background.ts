@@ -6,7 +6,7 @@ let connections: { [id: number]: browser.Runtime.Port } = {};
 
 browser.runtime.onConnect.addListener((devToolsConnection) => {
     
-    const devToolsListener = (message:any, sender:browser.Runtime.Port) => {
+    const devToolsListener = (message:any, port:browser.Runtime.Port) => {
 
         console.log('background got message', message);
 
@@ -45,8 +45,10 @@ browser.runtime.onConnect.addListener((devToolsConnection) => {
                 // Content script has found <umb-app> in DOM
                 // So make the browser action change to color to show like an enabled state
                 // Also change the HTML url of the popup to be found.html
+
                 browser.action.setPopup({
-                    popup: "popup/found.html"
+                    popup: "popup/found.html",
+                    tabId: port.sender?.tab?.id
                 });
                 browser.action.setIcon({
                     path: {
@@ -54,7 +56,8 @@ browser.runtime.onConnect.addListener((devToolsConnection) => {
                         48: "icons/icon-48.png",
                         128: "icons/icon-128.png",
                         256: "icons/icon-256.png"
-                    }
+                    },
+                    tabId: port.sender?.tab?.id
                 });
                 break;
         }
