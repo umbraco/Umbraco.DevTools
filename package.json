@@ -10,7 +10,8 @@
     "start:firefox": "web-ext run --source-dir extension/ --browser-console --devtools --start-url https://ashy-bay-09f36a803.1.azurestaticapps.net",
     "start:firefox:developer": "web-ext run --source-dir extension/ --firefox firefoxdeveloperedition --browser-console --devtools --start-url https://ashy-bay-09f36a803.1.azurestaticapps.net",
     "start:chromium": "web-ext run --source-dir extension/ --target chromium --browser-console --devtools --start-url https://ashy-bay-09f36a803.1.azurestaticapps.net",
-    "lint": "web-ext lint --source-dir extension/"
+    "lint": "web-ext lint --source-dir extension/",
+    "package": "web-ext build --source-dir extension/ --verbose"
   },
   "keywords": [
     "browser-extension",
