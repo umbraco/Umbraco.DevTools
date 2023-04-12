@@ -7,3 +7,4 @@ node_modules
 # to the extension folder
 extension/**/*.js
 extension/**/*.js.map
+web-ext-artifacts
