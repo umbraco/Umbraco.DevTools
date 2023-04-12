@@ -29,7 +29,8 @@ export class UmbDevToolsElement extends LitElement {
         }
 
         .sticky-bar {
-            position: sticky;
+            position: fixed;
+            width: 100%;
             top:0;
             background: #fff;
             padding: 10px 8px;
