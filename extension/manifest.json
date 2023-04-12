@@ -9,12 +9,18 @@
         }
     },
     "icons": {
-        "16": "icons/icon-grayscale-16.png",
-        "48": "icons/icon-grayscale-48.png",
-        "128": "icons/icon-grayscale-128.png",
-        "256": "icons/icon-grayscale-256.png"
+        "16": "icons/icon-16.png",
+        "48": "icons/icon-48.png",
+        "128": "icons/icon-128.png",
+        "256": "icons/icon-256.png"
     },
     "action": {
+        "default_icon": {
+            "16": "icons/icon-grayscale-16.png",
+            "48": "icons/icon-grayscale-48.png",
+            "128": "icons/icon-grayscale-128.png",
+            "256": "icons/icon-grayscale-256.png"
+        },
         "default_popup": "popup/not-found.html"
     },
     "devtools_page": "devtools/registration.html",
