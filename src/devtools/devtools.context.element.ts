@@ -34,6 +34,15 @@ export class UmbDevToolsContextElement extends LitElement {
         details > summary { 
             cursor: pointer;
         }
+
+		ul details {
+			margin-left: -10px;
+			margin-bottom: 0;
+			border: none;
+            background: inherit;
+			padding: 0;
+			box-shadow: none;
+		}
     `;
 
     render() {
@@ -77,7 +86,12 @@ export class UmbDevToolsContextElement extends LitElement {
 					case 'object':
 						console.log('OBJECT', property);
 						console.log('OBJECT val', property.value);
-						props.push(html`<li>${property.key} <em>(${property.type})</em></li>`);
+						props.push(html`					
+								<details>
+									<summary>${property.key} <em>(${property.type})</em></summary>
+									The COMPLEX object goes here
+								</details>
+							`);
 						break;
 
 					case 'function':
