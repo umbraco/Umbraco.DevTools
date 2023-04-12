@@ -36,6 +36,13 @@ export class UmbDevToolsElement extends LitElement {
             border-bottom: 1px solid #ccc;
             margin-bottom: 8px;
         }
+
+        .no-selection {
+            text-align: center;
+            height: 100%;
+            display: grid;
+            align-items: center;
+        }
     `;
 
 
@@ -118,7 +125,9 @@ export class UmbDevToolsElement extends LitElement {
     render() {
         if(!this.hasSelection) {
             return html `
-                <strong>Please select a DOM element from the elements pane</strong>
+                <div class="no-selection">
+                    <strong>Please select a DOM element from the elements pane</strong>
+                </div>                
             `
         }else {
             return html `
