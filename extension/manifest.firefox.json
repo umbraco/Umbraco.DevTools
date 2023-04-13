@@ -25,7 +25,7 @@
     },
     "devtools_page": "devtools/registration.html",
     "background": {
-        "service_worker": "background/background.js"
+        "scripts": ["background/background.js"]
     },
     "permissions": [
         "scripting",
