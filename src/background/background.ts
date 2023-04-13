@@ -8,7 +8,7 @@ browser.runtime.onConnect.addListener((devToolsConnection) => {
     
     const devToolsListener = (message:any, port:browser.Runtime.Port) => {
 
-        console.log('background got message', message);
+        // console.log('background got message', message);
 
         switch (message.name) {
             case "init":
@@ -23,15 +23,18 @@ browser.runtime.onConnect.addListener((devToolsConnection) => {
                 break;
 
             case "injectContentScript":
+                // NOTE: Not using this approach as using the manifest JSON for content script
+                // Kept this code around for now as point of reference
+
                 // Devtools WebComponent will send a message with name 'injectContentScript'
                 // That contains the path of the content script to inject & run
                 browser.scripting.executeScript({
                     target: { tabId: message.tabId },
                     files: [message.scriptToInject]
                 }).then(() => {
-                    console.log('injected');
+                    // console.log('injected');
                 }).catch((err) => {
-                    console.error('inject', err);
+                    // console.error('inject', err);
                 });
                 
                 break;
