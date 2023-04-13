@@ -10,7 +10,8 @@
 * Run `npm run start:firefox` to have FireFox open with the extension loaded and monitoring any changes to the files in the `extension` folder
 * Run `npm run start:chromium` to have Chrome or chromium based browser open with the extension loaded and monitoring any changes to the files in the `extension` folder
 
-## Registering DevTools Pane
+## How it works
+#### Registering DevTools Pane
 ```mermaid
 flowchart
     A(Browser Extension) --> |Loads manifest from root of folder| B
