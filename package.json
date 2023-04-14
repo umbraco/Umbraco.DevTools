@@ -9,11 +9,12 @@
     "watch": "rollup --config --watch",
     "copy:manifest:firefox": "node ./scripts/copy-manifest.js --manifest=firefox",
     "copy:manifest:chromium": "node ./scripts/copy-manifest.js --manifest=chrome",
-    "start:firefox": "web-ext run --source-dir extension/ --browser-console --devtools --start-url https://ashy-bay-09f36a803.1.azurestaticapps.net",
-    "start:firefox:developer": "web-ext run --source-dir extension/ --firefox firefoxdeveloperedition --browser-console --devtools --start-url https://ashy-bay-09f36a803.1.azurestaticapps.net",
-    "start:chromium": "web-ext run --source-dir extension/ --target chromium --browser-console --devtools --start-url https://ashy-bay-09f36a803.1.azurestaticapps.net",
+    "start:firefox": "npm run copy:manifest:firefox && web-ext run --source-dir extension/ --browser-console --devtools --start-url https://ashy-bay-09f36a803.1.azurestaticapps.net",
+    "start:firefox:developer": "npm run copy:manifest:firefox && web-ext run --source-dir extension/ --firefox firefoxdeveloperedition --browser-console --devtools --start-url https://ashy-bay-09f36a803.1.azurestaticapps.net",
+    "start:chromium": "npm run copy:manifest:chromium && web-ext run --source-dir extension/ --target chromium --browser-console --devtools --start-url https://ashy-bay-09f36a803.1.azurestaticapps.net",
     "lint": "web-ext lint --source-dir extension/",
-    "package": "web-ext build --source-dir extension/ --verbose --overwrite-dest"
+    "package:firefox": "npm run copy:manifest:firefox && web-ext build --source-dir extension/ --verbose --overwrite-dest --filename {name}-{version}-Firefox.zip",
+    "package:chromium": "npm run copy:manifest:chromium && web-ext build --source-dir extension/ --verbose --overwrite-dest --filename {name}-{version}-Chromium.zip"
   },
   "keywords": [
     "browser-extension",
