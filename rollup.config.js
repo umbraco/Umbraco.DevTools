@@ -7,7 +7,7 @@ export default [
     {
         input: 'src/popup/popup.element.ts',
         output: {
-            dir: 'extension/popup',
+            dir: 'extension',
             format: 'esm'
         },
         plugins: [
@@ -17,9 +17,9 @@ export default [
         external: [] // list of external modules to exclude from the bundle
     },
     {
-        input: 'src/devtools/registration.ts',
+        input: 'src/devtools/devtools.registration.ts',
         output: {
-            dir: 'extension/devtools',
+            dir: 'extension',
             format: 'esm'
         },
         plugins: [
@@ -31,7 +31,7 @@ export default [
     {
         input: 'src/devtools/devtools.element.ts',
         output: {
-            dir: 'extension/devtools',
+            dir: 'extension',
             format: 'esm'
         },
         plugins: [
@@ -43,7 +43,7 @@ export default [
     {
         input: 'src/background/background.ts',
         output: {
-            dir: 'extension/background',
+            dir: 'extension',
             format: 'esm'
         },
         plugins: [
@@ -55,7 +55,7 @@ export default [
     {
         input: 'src/content-script/content.ts',
         output: {
-            dir: 'extension/content-script',
+            dir: 'extension',
             format: 'esm'
         },
         plugins: [

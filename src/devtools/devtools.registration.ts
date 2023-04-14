@@ -12,8 +12,7 @@ browser.devtools.inspectedWindow.eval("document.getElementsByTagName('umb-app').
     // As the value is 0 or 1 lets be lazy and use this like a boolean
     if(valueOfEval) {
         browser.devtools.panels.elements.createSidebarPane("Umbraco").then((sidebar) => {
-            //sidebar.setPage("devtools/panel.html");
-            sidebar.setPage("panel.html");
+            sidebar.setPage("devtools-panel.html");
         });
     } else {
         console.warn("Did not find the <umb-app> element in the page, so the Umbraco DevTools panel will not be shown.");

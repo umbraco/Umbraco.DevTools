@@ -21,11 +21,11 @@
             "128": "icons/icon-grayscale-128.png",
             "256": "icons/icon-grayscale-256.png"
         },
-        "default_popup": "popup/not-found.html"
+        "default_popup": "popup-not-found.html"
     },
-    "devtools_page": "devtools/registration.html",
+    "devtools_page": "devtools-registration.html",
     "background": {
-        "scripts": ["background/background.js"]
+        "scripts": ["background.js"]
     },
     "permissions": [
         "scripting",
@@ -33,7 +33,7 @@
     ],
     "content_scripts": [
         {
-            "js": ["content-script/content.js"],
+            "js": ["content.js"],
             "matches": [ "<all_urls>" ],
             "run_at": "document_end"
         }

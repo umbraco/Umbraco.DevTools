@@ -50,7 +50,7 @@ browser.runtime.onConnect.addListener((devToolsConnection) => {
                 // Also change the HTML url of the popup to be found.html
 
                 browser.action.setPopup({
-                    popup: "popup/found.html",
+                    popup: "popup-found.html",
                     tabId: port.sender?.tab?.id
                 });
                 browser.action.setIcon({
