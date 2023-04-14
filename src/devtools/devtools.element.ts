@@ -24,13 +24,18 @@ export class UmbDevToolsElement extends LitElement {
 
             display: block;
             height: 100%;
+        }
 
-            background:pink;
+        .no-selection {
+            text-align: center;
+            height: 100vh;
+            display: grid;
+            align-items: center;
         }
 
         .sticky-bar {
             position: fixed;
-            width: 100%;
+            width: calc(100% - 16px);
             top:0;
             background: #fff;
             padding: 10px 8px;
@@ -38,11 +43,13 @@ export class UmbDevToolsElement extends LitElement {
             margin-bottom: 8px;
         }
 
-        .no-selection {
-            text-align: center;
-            height: 100%;
-            display: grid;
-            align-items: center;
+        umb-devtools-context {
+            display: block;
+            margin: 0 8px 8px 8px;
+        }
+
+        umb-devtools-context:first-of-type {
+            margin-top:45px;
         }
     `;
 
@@ -73,7 +80,7 @@ export class UmbDevToolsElement extends LitElement {
         // Listen to ANY messages recieved FROM the background page
         this._backgroundPageConnection.onMessage.addListener((message, _port) => {
 
-            console.log('message FROM BG in debug component', message, message.name);
+            // console.log('message FROM BG in debug component', message, message.name);
 
             switch(message.name) {
                 case "contextData":

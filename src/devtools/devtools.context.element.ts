@@ -24,7 +24,6 @@ export class UmbDevToolsContextElement extends LitElement {
         }
 
         details {
-            margin: 0 8px 8px 8px;
             border: 1px solid #ccc;
             background: white;
             padding:5px;
