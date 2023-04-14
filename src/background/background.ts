@@ -25,17 +25,18 @@ browser.runtime.onConnect.addListener((devToolsConnection) => {
             case "injectContentScript":
                 // NOTE: Not using this approach as using the manifest JSON for content script
                 // Kept this code around for now as point of reference
+                // If ever use this approach again will need to use the 'scripting' permission in the manifest
 
                 // Devtools WebComponent will send a message with name 'injectContentScript'
                 // That contains the path of the content script to inject & run
-                browser.scripting.executeScript({
-                    target: { tabId: message.tabId },
-                    files: [message.scriptToInject]
-                }).then(() => {
-                    // console.log('injected');
-                }).catch((err) => {
-                    // console.error('inject', err);
-                });
+                // browser.scripting.executeScript({
+                //     target: { tabId: message.tabId },
+                //     files: [message.scriptToInject]
+                // }).then(() => {
+                //     // console.log('injected');
+                // }).catch((err) => {
+                //     // console.error('inject', err);
+                // });
                 
                 break;
 

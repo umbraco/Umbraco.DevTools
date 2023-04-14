@@ -28,7 +28,6 @@
         "scripts": ["background.js"]
     },
     "permissions": [
-        "scripting",
         "activeTab"
     ],
     "content_scripts": [

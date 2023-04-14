@@ -68,6 +68,7 @@ export class UmbDevToolsElement extends LitElement {
         });
 
         // *** NOTE: This was moved as registration into manifest.json ***
+        // If ever use this approach again will need to use the 'scripting' permission in the manifest
 
         // Let the background page know we want to inject a script
         // this._backgroundPageConnection.postMessage({
