@@ -1,6 +1,10 @@
 # Umbraco.DevTools
  web browser extension that helps with Developer Experience for developing UI with the new WebComponent based backoffice
-
+ 
+### Browser Extension Stores
+* [Chrome Web Store](https://chrome.google.com/webstore/detail/umbraco-devtools/gpfiiillbldhondlbdogfaecbpoheedj)
+* [FireFox Add-ons](https://addons.mozilla.org/en-GB/firefox/addon/umbraco-devtools/)
+* [Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/umbraco-devtools/fdfbdnjojekbgkhlammjcigclgjlopep)
 
 ## Developing
 * Run `npm install` in the terminal at the root of this repository
