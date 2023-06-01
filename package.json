@@ -35,6 +35,6 @@
     "webextension-polyfill": "^0.10.0"
   },
   "dependencies": {
-    "lit": "^2.7.3"
+    "lit": "^2.7.4"
   }
 }
