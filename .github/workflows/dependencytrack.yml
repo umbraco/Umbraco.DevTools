@@ -10,7 +10,7 @@ jobs:
   sbom:
     runs-on: ubuntu-latest
     env:
-      SBOM_FILE: sbom/bom-frontend.xml
+      SBOM_FILE: sbom/bom-frontend.json
       TRACKER_ENDPOINT: "https://ca-live-global-dtrack-api.purplemoss-6e7d841c.westeurope.azurecontainerapps.io/api/v1/bom"
 
     steps:
