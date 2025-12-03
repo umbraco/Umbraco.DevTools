@@ -1,0 +1,68 @@
+name: Generate SBOM for Dependency-Track
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - '*'
+
+jobs:
+  sbom:
+    runs-on: ubuntu-latest
+    env:
+      SBOM_FILE: sbom/bom-frontend.xml
+      TRACKER_ENDPOINT: "https://ca-live-global-dtrack-api.purplemoss-6e7d841c.westeurope.azurecontainerapps.io/api/v1/bom"
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.x'
+
+      - name: Install CycloneDX Node.js CLI in frontend
+        run: |
+          if [ -f "package.json" ]; then
+            npm install --save-dev @cyclonedx/cyclonedx-npm
+          else
+            echo "ERROR: No package.json found — cannot generate SBOM."
+            exit 1
+          fi
+
+      - name: Generate SBOM for Node.js (frontend)
+        run: |
+          mkdir -p sbom
+          if [ -f "package-lock.json" ] || [ -f "yarn.lock" ]; then
+            npx @cyclonedx/cyclonedx-npm -o "$SBOM_FILE"
+          else
+            echo "ERROR: No package-lock.json or yarn.lock found — cannot create SBOM."
+            exit 1
+          fi
+
+          # enforce that CycloneDX really produced something
+          if [ ! -f "$SBOM_FILE" ]; then
+            echo "ERROR: SBOM file was not generated."
+            exit 1
+          fi
+
+      - name: Upload SBOM artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-sbom
+          path: ${{ env.SBOM_FILE }}
+
+      - name: Upload Node.js SBOM to Dependency-Track
+        env:
+          DTRACK_API_KEY: ${{ secrets.DTRACK_API_KEY }}
+        run: |
+          curl --fail-with-body -v -i -w "\nHTTP Status: %{http_code}\n" \
+            -X POST "$TRACKER_ENDPOINT" \
+            -H "X-Api-Key: $DTRACK_API_KEY" \
+            -H "accept: application/json" \
+            -H "Content-Type: multipart/form-data" \
+            -F "autoCreate=true" \
+            -F "projectName=${{ github.event.repository.name }}-frontend" \
+            -F "projectVersion=${{ github.ref_name }}" \
+            -F "bom=@$SBOM_FILE"
